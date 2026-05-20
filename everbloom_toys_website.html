@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everbloom Novelty & Toys - Custom Plastic Toy Manufacturing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-yellow: #FFF200;
+            --royal-blue: #4169E1;
+            --vibrant-red: #E31937;
+            --dark-text: #1a1a2e;
+            --light-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffffff;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* Grid Pattern Background */
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 3px solid var(--neon-yellow);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--vibrant-red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--neon-yellow);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 3px solid var(--dark-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 700;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--royal-blue);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--royal-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(65,105,225,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(65,105,225,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--neon-yellow);
+            color: var(--dark-text);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--dark-text);
+            transform: rotate(-2deg);
+            box-shadow: 4px 4px 0 var(--dark-text);
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .hero h1 span {
+            color: var(--vibrant-red);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: var(--neon-yellow);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: 3px solid var(--dark-text);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--royal-blue);
+            color: white;
+            box-shadow: 4px 4px 0 var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-text);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-text);
+            box-shadow: 4px 4px 0 var(--dark-text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-text);
+        }
+
+        /* Floating Shapes */
+        .shape {
+            position: absolute;
+            border: 3px solid var(--dark-text);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            background: var(--neon-yellow);
+            border-radius: 12px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 60px;
+            height: 60px;
+            background: var(--royal-blue);
+            border-radius: 50%;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .shape-3 {
+            width: 50px;
+            height: 50px;
+            background: var(--vibrant-red);
+            border-radius: 8px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+            transform: rotate(45deg);
+        }
+
+        .shape-4 {
+            width: 70px;
+            height: 70px;
+            background: var(--neon-yellow);
+            border-radius: 50%;
+            bottom: 25%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Custom Manufacturing Section */
+        .custom-section {
+            padding: 6rem 2rem;
+            position: relative;
+            background: var(--light-gray);
+        }
+
+        .custom-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(227,25,55,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(227,25,55,0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .custom-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--vibrant-red);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            border: 3px solid var(--dark-text);
+        }
+
+        .section-header h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .custom-card {
+            background: white;
+            border: 4px solid var(--dark-text);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 8px 8px 0 var(--dark-text);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .custom-text h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            color: var(--royal-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .custom-text p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .custom-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--neon-yellow);
+            color: var(--dark-text);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: 3px solid var(--dark-text);
+            box-shadow: 4px 4px 0 var(--dark-text);
+            transition: all 0.2s;
+        }
+
+        .custom-cta-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-text);
+            background: var(--vibrant-red);
+            color: white;
+        }
+
+        .custom-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .toy-showcase {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, var(--royal-blue), #5a7fe8);
+            border-radius: 24px;
+            border: 4px solid var(--dark-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 6px 6px 0 var(--dark-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toy-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .toy-icon {
+            font-size: 5rem;
+            z-index: 1;
+            filter: drop-shadow(3px 3px 0 var(--dark-text));
+        }
+
+        .toy-label {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 1rem;
+            z-index: 1;
+            text-shadow: 2px 2px 0 var(--dark-text);
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .sparkle-2 { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .sparkle-3 { bottom: 15%; left: 20%; animation-delay: 1s; }
+        .sparkle-4 { bottom: 20%; right: 10%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; }
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border: 3px solid var(--dark-text);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .feature-card:nth-child(1) { box-shadow: 5px 5px 0 var(--neon-yellow); }
+        .feature-card:nth-child(2) { box-shadow: 5px 5px 0 var(--royal-blue); }
+        .feature-card:nth-child(3) { box-shadow: 5px 5px 0 var(--vibrant-red); }
+        .feature-card:nth-child(4) { box-shadow: 5px 5px 0 var(--neon-yellow); }
+
+        .feature-card:hover {
+            transform: translate(-3px, -3px);
+        }
+
+        .feature-card:nth-child(1):hover { box-shadow: 8px 8px 0 var(--neon-yellow); }
+        .feature-card:nth-child(2):hover { box-shadow: 8px 8px 0 var(--royal-blue); }
+        .feature-card:nth-child(3):hover { box-shadow: 8px 8px 0 var(--vibrant-red); }
+        .feature-card:nth-child(4):hover { box-shadow: 8px 8px 0 var(--neon-yellow); }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--dark-text);
+        }
+
+        .feature-card:nth-child(1) .feature-icon { background: var(--neon-yellow); }
+        .feature-card:nth-child(2) .feature-icon { background: var(--royal-blue); color: white; }
+        .feature-card:nth-child(3) .feature-icon { background: var(--vibrant-red); color: white; }
+        .feature-card:nth-child(4) .feature-icon { background: var(--neon-yellow); }
+
+        .feature-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--dark-text);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact > .contact-container > p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--neon-yellow);
+            transform: translateY(-3px);
+        }
+
+        .contact-item-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-yellow);
+        }
+
+        .contact-item p, .contact-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--neon-yellow);
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: var(--neon-yellow);
+            color: var(--dark-text);
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: 3px solid white;
+            box-shadow: 4px 4px 0 white;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+
+        .contact-cta:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 white;
+            background: var(--vibrant-red);
+            color: white;
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .custom-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .toy-showcase {
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🧸</div>
+                Everbloom
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#custom">Custom Toys</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero grid-bg" id="home">
+        <div class="hero-grid-overlay"></div>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">✨ Delhi's Trusted Toy Manufacturer</div>
+            <h1>Where Imagination Comes to <span>Life!</span></h1>
+            <p class="hero-subtitle">Premium plastic toys crafted with care, safety, and endless creativity for children everywhere.</p>
+            <div class="hero-cta">
+                <a href="#custom" class="btn btn-primary">🚀 Start Your Custom Order</a>
+                <a href="#features" class="btn btn-secondary">Explore Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Manufacturing Section -->
+    <section class="custom-section" id="custom">
+        <div class="custom-grid-bg"></div>
+        <div class="custom-container">
+            <div class="section-header fade-in">
+                <div class="section-label">SPECIAL SERVICE</div>
+                <h2>Custom Toy Manufacturing</h2>
+            </div>
+
+            <div class="custom-card fade-in">
+                <div class="custom-text">
+                    <h3>We manufacture custom toys!</h3>
+                    <p>Got a prototype or a fresh idea you want to discuss? Contact us to bring it to life. From concept to production, we handle it all with precision and passion.</p>
+                    <a href="mailto:rg.rajatgoel22@gmail.com" class="custom-cta-btn">
+                        📧 Get in Touch
+                    </a>
+                </div>
+                <div class="custom-visual">
+                    <div class="toy-showcase">
+                        <div class="toy-icon">🎨</div>
+                        <div class="toy-label">Your Design Here</div>
+                    </div>
+                    <div class="sparkle sparkle-1">✨</div>
+                    <div class="sparkle sparkle-2">⭐</div>
+                    <div class="sparkle sparkle-3">✨</div>
+                    <div class="sparkle sparkle-4">⭐</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features grid-bg" id="features">
+        <div class="features-container">
+            <div class="section-header fade-in">
+                <div class="section-label" style="background: var(--royal-blue);">WHY CHOOSE US</div>
+                <h2>Quality You Can Trust</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Child Safe</h3>
+                    <p>All toys meet strict safety standards. Non-toxic materials only.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Made in India</h3>
+                    <p>Proudly manufactured in Delhi with local craftsmanship.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Custom Designs</h3>
+                    <p>Bring your unique toy ideas to life with our expert team.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📦</div>
+                    <h3>Bulk Orders</h3>
+                    <p>Wholesale pricing available for retailers and distributors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-grid"></div>
+        <div class="contact-container">
+            <h2>Let's Create Something Amazing!</h2>
+            <p>Ready to start your custom toy project? Reach out today.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <h4>Email</h4>
+                    <a href="mailto:rg.rajatgoel22@gmail.com">rg.rajatgoel22@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <h4>Phone</h4>
+                    <a href="tel:+918287422598">+91 82874 22598</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <h4>Visit Us</h4>
+                    <p>308/1, Shahzada Bagh, Industrial Area<br>Near Dharam Kanta, Delhi-110035</p>
+                </div>
+            </div>
+
+            <a href="mailto:rg.rajatgoel22@gmail.com" class="contact-cta">Start Your Project →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Everbloom Novelty & Toys. All rights reserved. | Made with ❤️ in Delhi</p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.shape').forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.1);
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
